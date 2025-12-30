@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tour Guide</title>
+    <link rel="stylesheet" href="hi.css">
+    <style>
+        /* Button to play sound */
+        .music-btn {
+            position: fixed; top: 20px; right: 20px; z-index: 100;
+            background: #ff5722; color: white; padding: 10px 20px;
+            cursor: pointer; border: none; border-radius: 5px; font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="music-btn" onclick="toggleMusic()">▶ Play Music</button>
+
+    <div class="section">
+        <h1>Welcome to my tour guide</h1>
+
+        <video autoplay muted loop id="my-video">
+            <source src="videoBG3.mp4" type="video/mp4">
+        </video>
+
+        <audio id="my-audio" loop>
+            <source src="mysong.mp3" type="audio/mpeg">
+        </audio>
+
+        <p>Explore the beauty of our Governorates.</p>
+        
+        <div class="nav-links">
+            <button><a href="cairo.html">Cairo Gallery</a></button>
+            <button><a href="luxor1.html">Luxor Gallery</a></button>
+        </div>
+    </div>
+
+    <script>
+        var audio = document.getElementById("my-audio");
+        var btn = document.querySelector(".music-btn");
+        var isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                btn.innerHTML = "▶ Play Music";
+                isPlaying = false;
+            } else {
+                audio.play();
+                btn.innerHTML = "⏸ Pause Music";
+                isPlaying = true;
+            }
+        }
+    </script>
+</body>
+</html>
